@@ -79,3 +79,27 @@ This package contains files required for development only.
 %makeinstall_std
 
 %find_lang %{name}
+
+
+%changelog
+* Mon Jan 16 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.9.1-1
++ Revision: 761829
+- new tarball
+- new version 0.9.1
+
+* Thu Aug 11 2011 Andrey Bondrov <abondrov@mandriva.org> 0.9.0-0.pre2.1
++ Revision: 693964
+- imported package gnunet-gtk
+
+
+* Thu Aug 11 2011 Andrey Bondrov <bondrov@math.dvgu.ru> 0.9.0-0.pre2.1mdv2011.0
+- New version 0.9.0pre2
+- Port to 2011
+
+* Thu Apr 03 2008 Anssi Hannula <anssi@zarb.org> 0.7.3-1plf2008.1
+- add to PLF
+- drop duplicate menu entry
+- buildrequires libglade2
+
+* Fri Mar 21 2008 Nicolas Vigier <boklm@mars-attacks.org> 0.7.3-1mdv2008.1
+- first version
