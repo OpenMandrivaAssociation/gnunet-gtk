@@ -1,20 +1,20 @@
-%define name gnunet-gtk
 %define major 1
 %define libname %mklibname %{name} %{major}
+%define devname %mklibname %{name} -d
 
-Name:		%{name}
-Version:        0.9.1
-Release:        1
-Source0:	http://gnunet.org/download/%{name}-%{version}.tar.gz
-License:	GPLv2+
 Summary:	GNUnet GTK user interface
+Name:		gnunet-gtk
+Version:	0.10.0
+Release:	1
+License:	GPLv2+
 Group:		Networking/File transfer
-URL:		http://gnunet.org/
-BuildRequires:	gnunet-devel = %{version}
-BuildRequires:	gtk+2-devel
-BuildRequires:	libextractor-devel
-BuildRequires:	libgksu-devel
-BuildRequires:	glade3-devel
+Url:		http://gnunet.org/
+Source0:	http://gnunet.org/download/%{name}-%{version}.tar.gz
+BuildRequires:	pkgconfig(gladeui-1.0)
+BuildRequires:	pkgconfig(gnunetcore) = %{version}
+BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(libextractor)
+BuildRequires:	pkgconfig(libgksu2)
 Requires:	gnunet
 
 %description
@@ -49,19 +49,22 @@ This package contains lib%{name} shared library.
 
 #------------------------------------------------------------------------------
 
-%package devel
-Summary:        GNUnet GTK development files
-Group:          System/Libraries
-Requires:	%{libname} = %{version}
+%package -n %{devname}
+Summary:	GNUnet GTK development files
+Group:		System/Libraries
+Requires:	%{libname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
+Obsoletes:	%{name}-devel < 0.10.0
+Conflicts:	%{name}-devel < 0.10.0
 
-%description devel
+%description -n %{devname}
 This is the GNUnet GTK user interface. GNUnet is a framework for secure
 peer-to-peer networking that does not use any centralized or otherwise
 trusted services.
 
 This package contains files required for development only.
 
-%files devel
+%files -n %{devname}
 %doc README AUTHORS ABOUT-NLS ChangeLog
 %{_includedir}/%{name}/gnunet_gtk.h
 %{_libdir}/libgnunetgtk.so
@@ -80,26 +83,3 @@ This package contains files required for development only.
 
 %find_lang %{name}
 
-
-%changelog
-* Mon Jan 16 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.9.1-1
-+ Revision: 761829
-- new tarball
-- new version 0.9.1
-
-* Thu Aug 11 2011 Andrey Bondrov <abondrov@mandriva.org> 0.9.0-0.pre2.1
-+ Revision: 693964
-- imported package gnunet-gtk
-
-
-* Thu Aug 11 2011 Andrey Bondrov <bondrov@math.dvgu.ru> 0.9.0-0.pre2.1mdv2011.0
-- New version 0.9.0pre2
-- Port to 2011
-
-* Thu Apr 03 2008 Anssi Hannula <anssi@zarb.org> 0.7.3-1plf2008.1
-- add to PLF
-- drop duplicate menu entry
-- buildrequires libglade2
-
-* Fri Mar 21 2008 Nicolas Vigier <boklm@mars-attacks.org> 0.7.3-1mdv2008.1
-- first version
