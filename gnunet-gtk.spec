@@ -8,7 +8,7 @@ Version:	0.10.0
 Release:	2
 License:	GPLv2+
 Group:		Networking/File transfer
-Url:		http://gnunet.org/
+Url:		https://gnunet.org/
 Source0:	http://gnunet.org/download/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(gladeui-1.0)
 BuildRequires:	pkgconfig(gnunetcore) = %{version}
